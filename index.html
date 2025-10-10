@@ -3,159 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laundry Services</title>
+  <title>DOM Interaction Assignment</title>
   <style>
-    * {
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      padding: 20px;
     }
 
-    body, html {
-      height: 100%;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 4rem;
-      background: linear-gradient(to right, #f9fbff, #e8f4ff);
-    }
-
-    .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: #222;
-    }
-
-    ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    ul li a {
-      text-decoration: none;
+    h1 {
       color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
+      font-size: 2rem;
     }
 
-    ul li a:hover {
-      color: #2196f3;
-    }
-
-    .username {
-      background: #e3f2fd;
-      color: #2196f3;
-      border: none;
-      border-radius: 20px;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: calc(100vh - 80px);
-      padding: 0 8%;
-    }
-
-    .hero-left {
-      flex: 1;
-    }
-
-    .hero-left h1 {
-      font-size: 2.5rem;
-      color: #222;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .hero-left h1 span {
-      color: #2196f3;
-    }
-
-    .hero-left p {
-      margin-top: 1rem;
-      font-size: 1rem;
-      color: #777;
-      max-width: 500px;
-      line-height: 1.6;
-    }
-
-    .hero-left button {
-      margin-top: 2rem;
-      background-color: #2196f3;
-      color: white;
-      padding: 0.9rem 1.8rem;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .hero-left button:hover {
-      background-color: #1976d2;
-    }
-
-    .hero-right {
-      flex: 1;
+    .container {
       display: flex;
       justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+      flex-wrap: wrap;
     }
 
-    .hero-right img {
-      width: 80%;
-      max-width: 400px;
+    .box {
+      width: 120px;
+      height: 120px;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #333;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        overflow-y: auto;
-      }
+    .box:hover {
+      transform: scale(1.1);
+    }
 
-      .hero-right img {
-        width: 60%;
-        margin-top: 2rem;
-      }
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Laundry Wallah</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-    <button class="username">KATA NITHIN</button>
-  </nav>
 
-  <section class="hero">
-    <div class="hero-left">
-      <h1>Revitalize Your </h1><h1>Clothes with Expert</h1> <h1><span>Laundry Services!</span></>
-      <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. 
-         Schedule a pickup and rediscover the freshness of your clothes today!</p>
-      <button>Book a service today!</button>
-    </div>
-    <div class="hero-right">
-      <img src="https://cdn3d.iconscout.com/3d/premium/thumb/laundry-10514405-8530782.png?f=webp" alt="Laundry Machine">
-    </div>
-  </section>
+  <h1 id="greeting">Hello</h1>
+
+  <div class="container">
+    <div class="box" id="red">Red</div>
+    <div class="box" id="blue">Blue</div>
+    <div class="box" id="green">Green</div>
+    <div class="box" id="yellow">Yellow</div>
+  </div>
+
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <button id="greetBtn">Greet Me</button>
+
+  <script>
+    // Greeting functionality
+    const greeting = document.getElementById("greeting");
+    const nameInput = document.getElementById("nameInput");
+    const greetBtn = document.getElementById("greetBtn");
+
+    greetBtn.addEventListener("click", () => {
+      const name = nameInput.value.trim();
+      greeting.textContent = name ? `Hello, ${name}` : "Hello";
+    });
+
+    // Color box functionality
+    const colors = ["red", "blue", "green", "yellow"];
+    colors.forEach(color => {
+      const box = document.getElementById(color);
+      box.addEventListener("click", () => {
+        box.style.backgroundColor = color;
+        box.style.color = "white";
+      });
+    });
+  </script>
+
 </body>
 </html>
