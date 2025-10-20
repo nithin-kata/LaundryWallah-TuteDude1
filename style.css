@@ -1,0 +1,202 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f9fbff;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bff;
+}
+.logo span { color: #333; }
+.navbar nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.username {
+  background: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 80px;
+  background: #eaf2ff;
+}
+.hero-text { width: 50%; }
+.hero-text h1 { font-size: 2.5rem; color: #004aad; }
+.hero-text p { margin: 10px 0 20px; }
+.hero-text button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.hero-img img {
+  width: 420px;
+  border-radius: 10px;
+}
+
+/* Overview Section with Ribbon */
+.overview {
+  background: #f8fcff;
+  padding: 0;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.ribbon {
+  background-color: #87cefa;
+  color: white;
+  padding: 15px 40px;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.overview-stats {
+  display: flex;
+  justify-content: space-around;
+  background: #e9f6ff;
+  padding: 30px 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.overview-stats div h2 {
+  color: #08a5e9;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.overview-stats div p {
+  color: #333;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+
+/* Booking */
+.booking {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px;
+  gap: 20px;
+}
+.left, .right {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+}
+.service {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.add, .remove {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.add { background: #007bff; color: white; }
+.remove { background: #ff4d4d; color: white; }
+.info { margin-top: 10px; font-size: 0.9rem; color: gray; }
+
+.book input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.book button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.thankMsg {
+  display: none;
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Quality */
+.quality {
+  background: #fff;
+  margin: 40px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.qualities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+.qualities div {
+  background: #f4f7ff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Newsletter */
+.newsletter {
+  background: #eaf2ff;
+  padding: 20px;
+  text-align: center;
+}
+.newsletter input {
+  margin: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.newsletter button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background: #004aad;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.footer a { color: white; text-decoration: underline; }
