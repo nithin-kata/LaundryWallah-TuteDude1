@@ -1,39 +1,51 @@
-let total = 0;
-const totalEl = document.getElementById("total");
-const cartItems = document.getElementById("cartItems");
-const thankMsg = document.getElementById("thankMsg");
+const buttons = document.querySelectorAll('.toggle-btn');
+const cartItems = document.getElementById('cartItems');
+const totalDisplay = document.getElementById('total');
 
-document.querySelectorAll(".add").forEach(btn => {
-  btn.addEventListener("click", () => {
-    total += parseInt(btn.dataset.price);
-    updateCart();
+let cart = [];
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const name = button.dataset.name;
+    const price = parseFloat(button.dataset.price);
+
+    if (button.classList.contains('add')) {
+      addToCart(name, price);
+      button.textContent = "Remove Item";
+      button.classList.remove('add');
+      button.classList.add('remove');
+    } else {
+      removeFromCart(name);
+      button.textContent = "Add Item";
+      button.classList.remove('remove');
+      button.classList.add('add');
+    }
+
+    updateCartDisplay();
   });
 });
 
-document.querySelectorAll(".remove").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const price = parseInt(btn.dataset.price);
-    if (total - price >= 0) total -= price;
-    updateCart();
-  });
-});
-
-function updateCart() {
-  totalEl.textContent = total;
-  cartItems.textContent = total > 0 ? "Items added to cart." : "No items added.";
+function addToCart(name, price) {
+  cart.push({ name, price });
 }
 
-document.getElementById("bookBtn").addEventListener("click", () => {
-  if (total === 0) {
-    alert("Please add items before booking!");
+function removeFromCart(name) {
+  cart = cart.filter(item => item.name !== name);
+}
+
+function updateCartDisplay() {
+  if (cart.length === 0) {
+    cartItems.textContent = "No items added.";
+    totalDisplay.textContent = "0";
     return;
   }
-  alert("✅ Booking Confirmed! We'll contact you soon.");
-  thankMsg.style.display = "block";
-  total = 0;
-  updateCart();
-});
 
-document.getElementById("scrollBtn").addEventListener("click", () => {
-  document.getElementById("services").scrollIntoView({ behavior: "smooth" });
-});
+  let total = 0;
+  cartItems.innerHTML = "";
+  cart.forEach((item, i) => {
+    total += item.price;
+    cartItems.innerHTML += `${i + 1}. ${item.name} - ₹${item.price}<br>`;
+  });
+
+  totalDisplay.textContent = total;
+}
