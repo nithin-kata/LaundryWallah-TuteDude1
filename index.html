@@ -33,13 +33,11 @@
 
   <!-- Overview -->
   <section class="overview">
-    <div class="ribbon">
-        <h2>Our Achievements</h2>
-    </div>
+    <div class="ribbon"><h2>Our Achievements</h2></div>
     <div class="overview-stats">
-        <div><h2>15+</h2><p>Laundry Services</p></div>
-        <div><h2>240+</h2><p>Happy Customers</p></div>
-        <div><h2>2+</h2><p>Years Experience</p></div>
+      <div><h2>15+</h2><p>Laundry Services</p></div>
+      <div><h2>240+</h2><p>Happy Customers</p></div>
+      <div><h2>2+</h2><p>Years Experience</p></div>
     </div>
   </section>
 
@@ -48,36 +46,12 @@
     <div class="left">
       <h2>Our Services</h2>
 
-      <!-- ✅ Each service now has ONE toggle button -->
-      <div class="service">
-        <p>Wash & Fold - ₹60</p>
-        <button class="toggle-btn add" data-name="Wash & Fold" data-price="60">Add Item</button>
-      </div>
-
-      <div class="service">
-        <p>Dry Cleaning - ₹120</p>
-        <button class="toggle-btn add" data-name="Dry Cleaning" data-price="120">Add Item</button>
-      </div>
-
-      <div class="service">
-        <p>Ironing - ₹40</p>
-        <button class="toggle-btn add" data-name="Ironing" data-price="40">Add Item</button>
-      </div>
-
-      <div class="service">
-        <p>Stain Removal - ₹500</p>
-        <button class="toggle-btn add" data-name="Stain Removal" data-price="500">Add Item</button>
-      </div>
-
-      <div class="service">
-        <p>Leather & Suite Cleaning - ₹999</p>
-        <button class="toggle-btn add" data-name="Leather & Suite Cleaning" data-price="999">Add Item</button>
-      </div>
-
-      <div class="service">
-        <p>Wedding Dress Cleaning - ₹2800</p>
-        <button class="toggle-btn add" data-name="Wedding Dress Cleaning" data-price="2800">Add Item</button>
-      </div>
+      <div class="service"><p>Wash & Fold - ₹60</p><button class="toggle-btn add" data-name="Wash & Fold" data-price="60">Add Item</button></div>
+      <div class="service"><p>Dry Cleaning - ₹120</p><button class="toggle-btn add" data-name="Dry Cleaning" data-price="120">Add Item</button></div>
+      <div class="service"><p>Ironing - ₹40</p><button class="toggle-btn add" data-name="Ironing" data-price="40">Add Item</button></div>
+      <div class="service"><p>Stain Removal - ₹500</p><button class="toggle-btn add" data-name="Stain Removal" data-price="500">Add Item</button></div>
+      <div class="service"><p>Leather & Suite Cleaning - ₹999</p><button class="toggle-btn add" data-name="Leather & Suite Cleaning" data-price="999">Add Item</button></div>
+      <div class="service"><p>Wedding Dress Cleaning - ₹2800</p><button class="toggle-btn add" data-name="Wedding Dress Cleaning" data-price="2800">Add Item</button></div>
 
       <p class="info">🛒 Add items to the cart and book your service.</p>
     </div>
@@ -88,13 +62,24 @@
         <p id="cartItems">No items added.</p>
         <p><strong>Total: ₹<span id="total">0</span></strong></p>
       </div>
+
+      <!-- ✅ Booking Form with Web3Forms -->
       <div class="book">
         <h3>Book Now</h3>
-        <input type="text" id="name" placeholder="Full Name" />
-        <input type="email" id="email" placeholder="Email" />
-        <input type="text" id="phone" placeholder="Phone Number" />
-        <button id="bookBtn">Book Now</button>
-        <p id="thankMsg" class="thankMsg">Thank you For Booking the Service. We will get back to you soon!</p>
+        <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="1be13c45-b4f5-4551-ad56-4e9d358bf0ce">
+          <input type="hidden" name="replyto" value="{{email}}">
+          <input type="hidden" name="redirect" value="https://web3forms.com/success">
+          <input type="hidden" id="cartData" name="cart" value="">
+          <input type="hidden" id="totalAmount" name="total" value="">
+
+          <input type="text" name="name" id="name" placeholder="Full Name" required>
+          <input type="email" name="email" id="email" placeholder="Email" required>
+          <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+          <textarea name="message" placeholder="Additional Notes (Optional)"></textarea>
+          <button type="submit" id="bookBtn">Book Now</button>
+        </form>
+        <p id="thankMsg" class="thankMsg">Thank you for booking! We’ll get back to you soon.</p>
       </div>
     </div>
   </section>
@@ -103,22 +88,10 @@
   <section id="about" class="quality">
     <h2>Why Choose Us?</h2>
     <div class="qualities">
-      <div>
-        <h4>Premium Services</h4>
-        <p>Top-quality detergents and expert handling.</p>
-      </div>
-      <div>
-        <h4>Quick Support</h4>
-        <p>Always ready to help our customers.</p>
-      </div>
-      <div>
-        <h4>Timely Delivery</h4>
-        <p>On-time pickup and delivery, every time.</p>
-      </div>
-      <div>
-        <h4>Affordable Prices</h4>
-        <p>Best prices for top-tier laundry services.</p>
-      </div>
+      <div><h4>Premium Services</h4><p>Top-quality detergents and expert handling.</p></div>
+      <div><h4>Quick Support</h4><p>Always ready to help our customers.</p></div>
+      <div><h4>Timely Delivery</h4><p>On-time pickup and delivery, every time.</p></div>
+      <div><h4>Affordable Prices</h4><p>Best prices for top-tier laundry services.</p></div>
     </div>
   </section>
 
