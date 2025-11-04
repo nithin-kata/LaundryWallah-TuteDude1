@@ -1,3 +1,4 @@
+// 🧺 Cart logic
 const buttons = document.querySelectorAll('.toggle-btn');
 const cartItems = document.getElementById('cartItems');
 const totalDisplay = document.getElementById('total');
@@ -20,7 +21,6 @@ buttons.forEach(button => {
       button.classList.remove('remove');
       button.classList.add('add');
     }
-
     updateCartDisplay();
   });
 });
@@ -46,6 +46,19 @@ function updateCartDisplay() {
     total += item.price;
     cartItems.innerHTML += `${i + 1}. ${item.name} - ₹${item.price}<br>`;
   });
-
   totalDisplay.textContent = total;
 }
+
+// 🧾 Auto-scroll for "Book a Service" button
+document.getElementById('scrollBtn').addEventListener('click', () => {
+  document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+});
+
+// 📧 Web3Forms Integration
+document.getElementById("bookingForm").addEventListener("submit", function (e) {
+  const cartData = cart.map(item => `${item.name} - ₹${item.price}`).join(", ");
+  const total = totalDisplay.textContent;
+
+  document.getElementById("cartData").value = cartData || "No items";
+  document.getElementById("totalAmount").value = `₹${total}`;
+});
