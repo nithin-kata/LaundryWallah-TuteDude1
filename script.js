@@ -62,3 +62,4 @@ document.getElementById("bookingForm").addEventListener("submit", function (e) {
   document.getElementById("cartData").value = cartData || "No items";
   document.getElementById("totalAmount").value = `₹${total}`;
 });
+
