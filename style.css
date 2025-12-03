@@ -29,47 +29,105 @@ body {
   border-radius: 20px;
 }
 
+/* container utility */
+.container { max-width: 1150px; margin: 0 auto; padding: 0 22px; box-sizing: border-box; }
+
 /* Hero */
-.hero {
+.hero { background: #eef6ff; }
+.hero-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 80px;
-  background: #eaf2ff;
-}
-.hero-text { width: 50%; }
-.hero-text h1 { font-size: 2.5rem; color: #004aad; }
-.hero-text p { margin: 10px 0 20px; }
-.hero-text button {
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.hero-img img {
-  width: 420px;
-  border-radius: 10px;
+  gap: 28px;
+  padding: 48px 0;
 }
 
-/* Overview */
-.overview { background: #f8fcff; margin: 50px 0; text-align: center; }
-.ribbon {
-  background-color: #87cefa;
-  color: white;
-  padding: 15px 40px;
-  text-align: left;
-  font-size: 1.6rem;
-  font-weight: 600;
+/* Left text column */
+.hero-text { width: 56%; }
+.hero-text h1 {
+  font-size: 3.05rem;
+  line-height: 1.02;
+  margin: 0 0 18px;
+  color: #2a6fa0;
+  font-weight: 800;
+  letter-spacing: -0.6px;
 }
-.overview-stats {
-  display: flex;
-  justify-content: space-around;
-  background: #e9f6ff;
-  padding: 30px 0;
+.hero-text .accent { color: #0b63b8; }
+
+/* description */
+.lead {
+  color: #3d5563;
+  font-size: 1rem;
+  margin: 8px 0 22px;
+  max-width: 70%;
 }
-.overview-stats div h2 { color: #08a5e9; font-size: 2rem; }
+
+/* CTA */
+.hero-cta { margin-top: 6px; }
+.cta-button {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  background: linear-gradient(180deg,#4fb0ff,#2f9bff);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(47,155,255,0.18);
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.cta-button:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(47,155,255,0.22); }
+
+/* Right image column */
+.hero-img { width: 40%; display:flex; justify-content:flex-end; }
+.hero-img img {
+  width: 420px;
+  max-width: 100%;
+  border-radius: 10px;
+  display:block;
+}
+
+/* Achievements band */
+.achievements {
+  background: linear-gradient(90deg,#2f9bff,#4fb0ff);
+  color: #fff;
+  padding: 25px 0;
+  margin-top: -4px; /* tuck under hero */
+}
+.achievements-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+}
+.ach-left h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+.ach-stats { display:flex; gap: 28px; align-items:center; }
+.stat { text-align:center; min-width:120px; }
+.stat strong { display:block; font-size:20px; font-weight:800; }
+.stat span { display:block; font-size:13px; opacity:0.95; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero-inner { flex-direction: column-reverse; gap: 18px; padding: 32px 0; text-align: left; }
+  .hero-text, .hero-img { width: 100%; }
+  .lead { max-width: 100%; }
+  .hero-img { justify-content: center; }
+  .hero-img img { width: 360px; }
+  .achievements-inner { flex-direction: column; gap: 12px; text-align: center; }
+  .ach-stats { justify-content: center; flex-wrap:wrap; gap:16px; }
+}
+@media (max-width: 480px) {
+  .hero-text h1 { font-size: 1.8rem; }
+  .cta-button { padding: 12px 20px; font-size: 15px; }
+  .hero-img img { width: 280px; }
+}
+
 
 /* Booking */
 .booking { display: flex; justify-content: space-around; margin: 40px; gap: 20px; }
@@ -148,3 +206,214 @@ body {
   padding: 20px;
 }
 .footer a { color: white; text-decoration: underline; }
+/* Section wrapper */
+section.quality {
+  background: linear-gradient(180deg,#eaf4ff 0%, #f6fbff 100%);
+  padding: 48px 20px;
+  box-sizing: border-box;
+}
+
+/* container limits width and centers */
+section.quality .qualities {
+  max-width: 1100px;
+  margin: 28px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+  align-items: start;
+  padding: 18px;
+}
+
+/* title styling (left aligned, bold) */
+section.quality h2{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 6px;
+  color: #0b63b8;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+/* each feature card */
+section.quality .qualities > div{
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px 18px;
+  box-shadow: 0 6px 20px rgba(13,50,90,0.06);
+  text-align: left;
+  min-height: 140px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* icon circle */
+section.quality .qualities > div::before{
+  content: "";
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#e6f2ff,#d9eeff);
+  display: inline-block;
+  flex: 0 0 54px;
+  margin-right: 8px;
+  box-shadow: 0 6px 12px rgba(11,99,184,0.08);
+}
+
+/* If you use an <i> icon inside card, position it over the circle */
+.feature-icon{
+  margin-left: -62px; /* pulls icon on top of circle area */
+  margin-top: 2px;
+  font-size: 22px;
+  color: #0b63b8;
+  width: 54px;
+  text-align: center;
+  flex: 0 0 54px;
+}
+
+/* heading and paragraph */
+section.quality .qualities h4{
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #10324a;
+  font-weight: 700;
+}
+section.quality .qualities p{
+  margin: 0;
+  color: #5b6b75;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  section.quality .qualities { grid-template-columns: repeat(2,1fr); }
+  section.quality h2 { font-size: 26px; padding-left: 4px; }
+}
+@media (max-width: 480px){
+  section.quality .qualities { grid-template-columns: 1fr; gap: 14px; padding: 8px; }
+  .feature-icon { margin-left: -60px; }
+}
+
+/* utility container */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 18px; box-sizing: border-box; }
+
+/* Newsletter band */
+.newsletter {
+  background: linear-gradient(180deg, #2f9bff 0%, #4fb0ff 100%);
+  padding: 34px 0;
+  color: #fff;
+  margin-top: 36px;
+}
+.newsletter-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  justify-content: space-between;
+  padding: 12px;
+}
+.newsletter-text h2 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  color: #fff;
+  line-height: 1.05;
+  font-weight: 700;
+}
+.newsletter-text p {
+  margin: 0;
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+}
+
+/* newsletter form */
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.newsletter-form input[type="text"],
+.newsletter-form input[type="email"]{
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: 210px;
+  box-shadow: 0 6px 16px rgba(11,98,184,0.08);
+  font-size: 14px;
+}
+.newsletter-form input::placeholder { color: #7fbff6; }
+
+/* reuse the .cta-button styling you already have; override for newsletter */
+.newsletter-form .cta-button {
+  padding: 12px 22px;
+  font-size: 15px;
+  border-radius: 8px;
+  background: #fff;
+  color: #0b63b8;
+  border: none;
+  box-shadow: 0 6px 14px rgba(11,98,184,0.12);
+}
+
+/* Footer */
+.site-footer {
+  background: #f6f8fb;
+  color: #1b2b36;
+  margin-top: 0;
+  padding-top: 34px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 22px;
+  padding: 18px 0 28px;
+  align-items: start;
+}
+.footer-brand h3 {
+  margin: 0 0 8px;
+  color: #0b63b8;
+  font-size: 20px;
+}
+.footer-links h4,
+.footer-contact h4,
+.footer-follow h4 { margin: 0 0 8px; font-size: 15px; color: #10324a; }
+.footer-links ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin: 6px 0; }
+.footer-links a { color: #3b5564; text-decoration: none; font-size: 14px; }
+.footer-contact p { margin: 6px 0; color: #4b616e; font-size: 14px; }
+.footer-follow .socials a {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 8px;
+  box-shadow: 0 6px 16px rgba(16,50,74,0.06);
+  text-decoration: none;
+  color: #0b63b8;
+  font-weight: 700;
+}
+
+/* bottom strip */
+.footer-bottom {
+  border-top: 1px solid rgba(11,99,184,0.06);
+  background: transparent;
+  padding: 14px 0;
+  color: #647b86;
+}
+.footer-bottom p { margin: 0; font-size: 13px; }
+
+/* responsive */
+@media (max-width: 900px) {
+  .newsletter-inner { flex-direction: column; text-align: center; gap: 18px; }
+  .newsletter-form { justify-content: center; flex-wrap: wrap; }
+  .newsletter-form input { width: 100%; max-width: 320px; }
+  .footer-grid { grid-template-columns: repeat(2,1fr); gap: 18px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .newsletter-text h2 { font-size: 20px; }
+  .newsletter-form input { max-width: 100%; }
+}
